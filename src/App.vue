@@ -1,49 +1,40 @@
 <template>
-  <v-app class="blue-grey lighten-4">
-    <v-app-bar
-      app
-      color="blue-grey lighten-4"
-      elevate-on-scroll  >
+  <v-app id="inspire">
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list dense>
+        <v-list-item link :to="'/'">
+          <v-list-item-action>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link :to="'about'">
+          <v-list-item-action>
+            <v-icon>mdi-email</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>About</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
-  <v-toolbar-title>
-    MYTODO
-  </v-toolbar-title>
-      <v-btn
-        link
-        v-bind:to="'/'"
-        text
-        class="ml-4"
-      >
-        <span class="mr-2">Home</span>
-      </v-btn>
-      
-      <v-btn
-        link
-        v-bind:to="'cca'"
-        text
-        class="ml-2"
-      >
-        <span class="mr-2">CCA</span>
-      </v-btn>
-      <v-btn
-        link
-        v-bind:to="'about'"
-        text
-        class="ml-2"
-      >
-        <span class="mr-2">About</span>
-      </v-btn>
-
-      <v-spacer></v-spacer>
+    <v-app-bar app color="indigo" dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
 
-    <v-content class="blue-grey lighten-4">
-      <!-- Provides the application the proper gutter -->
-      <v-container fluid>
-        <!-- If using vue-router -->
+
+    <v-content>
+      <v-container class="fill-height" fluid>
         <router-view></router-view>
-      </v-container>    
+      </v-container>
     </v-content>
+    <v-footer color="indigo" app>
+      <span class="white--text">&copy; 2020</span>
+    </v-footer>
   </v-app>
 </template>
 
@@ -51,14 +42,18 @@
 // import HelloWorld from './components/HelloWorld';
 
 export default {
-  name: 'App',
+  name: "App",
+
+  props: {
+    source: String
+  },
 
   components: {
     // HelloWorld,
   },
 
   data: () => ({
-    //
-  }),
+    drawer: null
+  })
 };
 </script>

@@ -5,18 +5,18 @@ import Cca from '../views/Cca.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/cca',
-      name: 'Cca',
-      component: Cca
-    },
-      {
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/cca',
+    name: 'Cca',
+    component: Cca
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
